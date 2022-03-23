@@ -1,0 +1,1112 @@
+[
+    {
+        "id": "3a8ce685a5f42fc0",
+        "type": "tab",
+        "label": "01 | Node-RED Basics",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "15ceb141c0680c62",
+        "type": "tab",
+        "label": "02 | HTTP Basics",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9f8ac2f3414397c6",
+        "type": "tab",
+        "label": "03 | Filesystem",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8b811ffcec7468ef",
+        "type": "tab",
+        "label": "04 | HTTP Advanced",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "49eec2738aaa4054",
+        "type": "tab",
+        "label": "05 | FM API",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ad5dcbed1317d2dd",
+        "type": "dapi-client",
+        "name": "Default",
+        "timeout": "30000",
+        "concurrency": "10",
+        "ssl": true
+    },
+    {
+        "id": "1042dfe82d4fd9a9",
+        "type": "comment",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Node-RED Basics",
+        "info": "",
+        "x": 170,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7ec212653532826d",
+        "type": "inject",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Get Current Time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "bfb1b7fd6399659d"
+            ]
+        ]
+    },
+    {
+        "id": "bfb1b7fd6399659d",
+        "type": "debug",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Print to Console",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d657ed0208cd2051",
+        "type": "inject",
+        "z": "3a8ce685a5f42fc0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World!",
+        "payloadType": "str",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "dad99806335ea7d3"
+            ]
+        ]
+    },
+    {
+        "id": "dad99806335ea7d3",
+        "type": "debug",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Print to Console",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "74f3f2dfa127a9d2",
+        "type": "inject",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Start",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "7b961f98e664c9e2"
+            ]
+        ]
+    },
+    {
+        "id": "7b961f98e664c9e2",
+        "type": "function",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Get Human-Readable Date",
+        "func": "msg.payload = new Date().toLocaleDateString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "df989531a7c95224"
+            ]
+        ]
+    },
+    {
+        "id": "df989531a7c95224",
+        "type": "debug",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Print to Console",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b2854d28c1db8edb",
+        "type": "play audio",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Speak",
+        "voice": "0",
+        "x": 310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "27efd27c8101f2f5",
+        "type": "inject",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Greetings",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "We are now Moss Rock!",
+        "payloadType": "str",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "b2854d28c1db8edb",
+                "c7dccac1cad4e124"
+            ]
+        ]
+    },
+    {
+        "id": "c7dccac1cad4e124",
+        "type": "debug",
+        "z": "3a8ce685a5f42fc0",
+        "name": "Print to Console",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3148df12ce0fc44a",
+        "type": "http in",
+        "z": "15ceb141c0680c62",
+        "name": "",
+        "url": "/api",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "99bb138de906d2c7"
+            ]
+        ]
+    },
+    {
+        "id": "99bb138de906d2c7",
+        "type": "function",
+        "z": "15ceb141c0680c62",
+        "name": "Update msg Object",
+        "func": "const res = {\n  \"message\": \"Hello from Node-RED!\",\n  \"code\": 0\n};\nmsg.payload = res;\nmsg.statusCode = 200;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 100,
+        "wires": [
+            [
+                "4e317753453d10b5"
+            ]
+        ]
+    },
+    {
+        "id": "4e317753453d10b5",
+        "type": "http response",
+        "z": "15ceb141c0680c62",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 470,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fcd22b920297125d",
+        "type": "comment",
+        "z": "15ceb141c0680c62",
+        "name": "Basic GET Request",
+        "info": "",
+        "x": 130,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "2ebf648016a30b09",
+        "type": "comment",
+        "z": "15ceb141c0680c62",
+        "name": "Basic POST Request",
+        "info": "",
+        "x": 140,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9ec4b413ef74e109",
+        "type": "http in",
+        "z": "15ceb141c0680c62",
+        "name": "",
+        "url": "/api/test",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "bb97f9c92b1cfd21",
+                "03560b726966d9ad"
+            ]
+        ]
+    },
+    {
+        "id": "bb97f9c92b1cfd21",
+        "type": "function",
+        "z": "15ceb141c0680c62",
+        "name": "Update msg Object",
+        "func": "const body = msg.req.body;\nconst res = {\n  \"message\": \"Hello from Node-RED!\",\n  \"content\": body,\n  \"code\": 0\n};\nmsg.payload = res;\nmsg.statusCode = 201;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "d5665c85a55f50d7",
+                "a0f13ea9d7aa0ab2"
+            ]
+        ]
+    },
+    {
+        "id": "d5665c85a55f50d7",
+        "type": "http response",
+        "z": "15ceb141c0680c62",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a0f13ea9d7aa0ab2",
+        "type": "debug",
+        "z": "15ceb141c0680c62",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.content",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "03560b726966d9ad",
+        "type": "debug",
+        "z": "15ceb141c0680c62",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "req.body",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "92299a9d2a5434cf",
+        "type": "comment",
+        "z": "9f8ac2f3414397c6",
+        "name": "Write File",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f7e9d56158dcbadb",
+        "type": "comment",
+        "z": "9f8ac2f3414397c6",
+        "name": "Read File",
+        "info": "",
+        "x": 120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f3bf7e271170824e",
+        "type": "comment",
+        "z": "9f8ac2f3414397c6",
+        "name": "Delete File",
+        "info": "",
+        "x": 120,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2e1abb0f296800d0",
+        "type": "inject",
+        "z": "9f8ac2f3414397c6",
+        "name": "Start",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "c15f58fce2c93d62"
+            ]
+        ]
+    },
+    {
+        "id": "646b9d7ddf531996",
+        "type": "file",
+        "z": "9f8ac2f3414397c6",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "0697fe5a76aab95e"
+            ]
+        ]
+    },
+    {
+        "id": "c15f58fce2c93d62",
+        "type": "function",
+        "z": "9f8ac2f3414397c6",
+        "name": "File Meta",
+        "func": "msg.payload = `[${Date.now()}]: Hello World!`;\nmsg.filename = \"/Users/nickcheatwood/Desktop/Hello.txt\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "646b9d7ddf531996"
+            ]
+        ]
+    },
+    {
+        "id": "0697fe5a76aab95e",
+        "type": "debug",
+        "z": "9f8ac2f3414397c6",
+        "name": "Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "db6b3abb23e1e7fe",
+        "type": "comment",
+        "z": "9f8ac2f3414397c6",
+        "name": "Create subfolders?",
+        "info": "",
+        "x": 490,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "35ca51b50ce0d85e",
+        "type": "inject",
+        "z": "9f8ac2f3414397c6",
+        "name": "Start",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 182,
+        "wires": [
+            [
+                "d6e6554fe7a89c0f"
+            ]
+        ]
+    },
+    {
+        "id": "09538ab2172c0ef8",
+        "type": "file in",
+        "z": "9f8ac2f3414397c6",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 460,
+        "y": 182,
+        "wires": [
+            [
+                "76d9afb4e06b8691"
+            ]
+        ]
+    },
+    {
+        "id": "76d9afb4e06b8691",
+        "type": "debug",
+        "z": "9f8ac2f3414397c6",
+        "name": "File Contents",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 182,
+        "wires": []
+    },
+    {
+        "id": "d6e6554fe7a89c0f",
+        "type": "function",
+        "z": "9f8ac2f3414397c6",
+        "name": "File To Read",
+        "func": "msg.filename = \"/Users/nickcheatwood/Desktop/Hello.txt\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 182,
+        "wires": [
+            [
+                "09538ab2172c0ef8"
+            ]
+        ]
+    },
+    {
+        "id": "17da085654fabb7e",
+        "type": "function",
+        "z": "9f8ac2f3414397c6",
+        "name": "File To Delete",
+        "func": "msg.filename = \"/Users/nickcheatwood/Desktop/Hello.txt\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "90dcbdbacd20096a"
+            ]
+        ]
+    },
+    {
+        "id": "ae44b2df8ae0e332",
+        "type": "debug",
+        "z": "9f8ac2f3414397c6",
+        "name": "File Contents",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "36db941146f6f05b",
+        "type": "inject",
+        "z": "9f8ac2f3414397c6",
+        "name": "Start",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "17da085654fabb7e"
+            ]
+        ]
+    },
+    {
+        "id": "90dcbdbacd20096a",
+        "type": "file",
+        "z": "9f8ac2f3414397c6",
+        "name": "delete file",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "310cd9495b562ec6"
+            ]
+        ]
+    },
+    {
+        "id": "310cd9495b562ec6",
+        "type": "change",
+        "z": "9f8ac2f3414397c6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "File Deleted.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 280,
+        "wires": [
+            [
+                "ae44b2df8ae0e332"
+            ]
+        ]
+    },
+    {
+        "id": "7a055ccbba298c41",
+        "type": "comment",
+        "z": "8b811ffcec7468ef",
+        "name": "Custom CSV Export",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "493565a228a3cc02",
+        "type": "comment",
+        "z": "8b811ffcec7468ef",
+        "name": "Save HTML to PNG",
+        "info": "",
+        "x": 110,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0827307ad3a989a3",
+        "type": "http in",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "url": "/csv",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 100,
+        "wires": [
+            [
+                "51e223accb635789"
+            ]
+        ]
+    },
+    {
+        "id": "51e223accb635789",
+        "type": "function",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "func": "const parse = json2csv.parse;\n// Digest requested data\nconst myData = JSON.parse(msg.req.body);\n// Get column names\nconst fields = Object.keys(myData[0]);\nconst opts = { fields };\n\ntry {\n    // Convert to CSV, then to Buffer\n    const csv = parse(myData, opts)\n    const buf = new Buffer.from(csv);\n    // Send buffer file as response\n    msg.statusCode = 201;\n    msg.payload = buf;\n} catch (err) {\n    // Throw error\n    msg.statusCode = 500;\n    msg.payload = err;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "json2csv",
+                "module": "json2csv"
+            }
+        ],
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "665bd899d28a6cbd",
+                "f7a323aae88080c0"
+            ]
+        ]
+    },
+    {
+        "id": "f7a323aae88080c0",
+        "type": "http response",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 430,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "665bd899d28a6cbd",
+        "type": "debug",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cbdfece96c9bbf4e",
+        "type": "http in",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "url": "/png",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 220,
+        "wires": [
+            [
+                "02036ba5520df6f7",
+                "dfe6961ea85b4d39"
+            ]
+        ]
+    },
+    {
+        "id": "02036ba5520df6f7",
+        "type": "function",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "func": "msg.test = msg.req.body;\nconst image = await nodeHtmlToImage({\n    html: msg.payload ? msg.payload : '<html><h1>Hello World!</h1></html>'\n})\n\nmsg.payload = image\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "nodeHtmlToImage",
+                "module": "node-html-to-image"
+            }
+        ],
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "d38da338fd733c72"
+            ]
+        ]
+    },
+    {
+        "id": "d38da338fd733c72",
+        "type": "http response",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Type": "image/png"
+        },
+        "x": 430,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "dfe6961ea85b4d39",
+        "type": "debug",
+        "z": "8b811ffcec7468ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 250,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "aad6c742ed0c8276",
+        "type": "inject",
+        "z": "49eec2738aaa4054",
+        "name": "Start Flow",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "a768bbfc3e56288c"
+            ]
+        ]
+    },
+    {
+        "id": "cff6ee2cd31cfbfa",
+        "type": "debug",
+        "z": "49eec2738aaa4054",
+        "name": "Log Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6887df221454c3ed",
+        "type": "dapi-create-record",
+        "z": "49eec2738aaa4054",
+        "name": "",
+        "client": "ad5dcbed1317d2dd",
+        "layout": "API_Orders",
+        "layoutType": "str",
+        "data": "payload.data",
+        "dataType": "msg",
+        "scripts": "",
+        "scriptsType": "none",
+        "merge": "true",
+        "mergeType": "bool",
+        "output": "payload",
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "cb77ceedd3933e60"
+            ]
+        ]
+    },
+    {
+        "id": "a768bbfc3e56288c",
+        "type": "function",
+        "z": "49eec2738aaa4054",
+        "name": "Format Data",
+        "func": "const record = {\n    \"api_id\": uuid.v4(),\n    \"Customer\": \"John Deer\",\n    \"Order_Time\": new Date()\n};\nmsg.payload.data = record;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "uuid",
+                "module": "uuid"
+            }
+        ],
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "6887df221454c3ed"
+            ]
+        ]
+    },
+    {
+        "id": "16fdebef59bc5fd7",
+        "type": "comment",
+        "z": "49eec2738aaa4054",
+        "name": "Create Order Record",
+        "info": "",
+        "x": 150,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "32ac0ee83b4ade5d",
+        "type": "catch",
+        "z": "49eec2738aaa4054",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "540fbdbe1ccafe25"
+            ]
+        ]
+    },
+    {
+        "id": "540fbdbe1ccafe25",
+        "type": "debug",
+        "z": "49eec2738aaa4054",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5962f6c705b68eca",
+        "type": "inject",
+        "z": "49eec2738aaa4054",
+        "name": "Start Flow",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "34ec1de762a15257"
+            ]
+        ]
+    },
+    {
+        "id": "ae09a213a0774c67",
+        "type": "debug",
+        "z": "49eec2738aaa4054",
+        "name": "Log Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "34ec1de762a15257",
+        "type": "function",
+        "z": "49eec2738aaa4054",
+        "name": "Format Data",
+        "func": "const query = {\n    \"Customer\": \"John Deer\"\n};\nmsg.payload.query = query;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "uuid",
+                "module": "uuid"
+            }
+        ],
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "cb7d59a26ef701ce"
+            ]
+        ]
+    },
+    {
+        "id": "c8be7b10e75188c7",
+        "type": "comment",
+        "z": "49eec2738aaa4054",
+        "name": "Find Order Record(s)",
+        "info": "",
+        "x": 150,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "cb7d59a26ef701ce",
+        "type": "dapi-perform-find",
+        "z": "49eec2738aaa4054",
+        "name": "",
+        "client": "ad5dcbed1317d2dd",
+        "layout": "API_Orders",
+        "layoutType": "str",
+        "limit": "",
+        "limitType": "num",
+        "offset": "",
+        "offsetType": "num",
+        "sort": "",
+        "sortType": "none",
+        "query": "payload.query",
+        "queryType": "msg",
+        "scripts": "",
+        "scriptsType": "none",
+        "portals": "",
+        "portalsType": "none",
+        "output": "payload",
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "ae09a213a0774c67"
+            ]
+        ]
+    },
+    {
+        "id": "cb77ceedd3933e60",
+        "type": "function",
+        "z": "49eec2738aaa4054",
+        "name": "Update Payload",
+        "func": "const recordId = msg.payload.recordId;\nmsg.payload = `Record added to DB: ${recordId}`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "cff6ee2cd31cfbfa"
+            ]
+        ]
+    }
+]

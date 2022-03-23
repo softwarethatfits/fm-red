@@ -1,0 +1,12 @@
+# Node-RED folders
+*.backup
+
+# Sensitive creds
+flow_cred.json
+
+# Package-lock json file
+package-lock.json
+
+# Node folders
+node_modules
+node_modules/
